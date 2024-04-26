@@ -3,3 +3,7 @@ uvicorn[standard]
 openai
 pydantic
 python-dotenv
+fastapi-sqlalchemy
+psycopg2
+sqlalchemy
+requests
