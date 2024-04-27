@@ -31,3 +31,16 @@ class Merchant(Base):
     address = Column(String(255))
     created_at = Column(TIMESTAMP, server_default=func.now())
     updated_at = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now())
+
+class MerchantGarage(Base):
+    __tablename__ = "merchants_garage"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    category = Column(String(255))
+    address = Column(String(255))
+    logo = Column(String(255))
+    latitude = Column(Numeric(10, 8))  # Assuming latitude with precision 10 and scale 8
+    longitude = Column(Numeric(11, 8))  # Assuming longitude with precision 11 and scale 8
+    created_at = Column(TIMESTAMP, server_default=func.now())
+    updated_at = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now())

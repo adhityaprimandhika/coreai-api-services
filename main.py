@@ -5,10 +5,11 @@ from openai import OpenAI
 
 from schema import Merchant as SchemaMerchant
 from schema import Category as SchemaCategory
-from schema import Merchant
-from schema import Category
+from schema import MerchantGarage as SchemaMerchantGarage
+
 from models import Merchant as ModelMerchant
 from models import Category as ModelCategory
+from models import MerchantGarage as ModelMerchantGarage
 
 import os
 from dotenv import load_dotenv
@@ -66,7 +67,19 @@ def get_data_google(query):
         results["logo"] = data["places"][0]["iconMaskBaseUri"]
         results["latitude"] = data["places"][0]["location"]["latitude"]
         results["longitude"] = data["places"][0]["location"]["longitude"]
-        return results
+
+        # Check if existing in db
+        db = SessionLocal()
+        existing_data = db.query(ModelMerchantGarage).filter(ModelMerchantGarage.name==results["name"]).first()
+        if existing_data:
+            return existing_data
+        else:
+            new_data = ModelMerchantGarage(name=results["name"], category=results["category"], address=results["address"], logo=results["logo"], latitude=results["latitude"], longitude=results["longitude"])
+            db.add(new_data)
+            db.commit()
+            db.refresh(new_data)
+            return new_data
+
     else:
         # Print an error message if the request failed
         error_message = {}

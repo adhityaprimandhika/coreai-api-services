@@ -27,3 +27,17 @@ class Merchant(BaseModel):
 
     class Config:
         from_attributes = True
+
+class MerchantGarage(BaseModel):
+    id: int
+    name: str
+    category: str
+    address: str
+    logo: str
+    latitude: float
+    longitude: float
+    created_at: Optional[datetime]
+    updated_at: Optional[datetime]
+
+    class Config:
+        from_attributes = True
