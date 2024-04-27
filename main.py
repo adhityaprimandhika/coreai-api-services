@@ -160,6 +160,14 @@ async def get_categories():
     db.close()
     return {"categories": categories}
 
+# Retrieve all data from merchants_garage table
+@app.get("/api/merchants-garage")
+async def get_merchants_garage_item():
+    db = SessionLocal()
+    merchants_garage = db.query(ModelMerchantGarage).all()
+    db.close()
+    return {"merchantGarage": merchants_garage}
+
 # Retrieve data merchant
 @app.post("/api/get-data-merchant")
 async def data_merchant(m: DataMerchant):
