@@ -50,7 +50,8 @@ def get_data_google(query):
 
     headers = {
         "Content-Type": "application/json",
-        "X-Goog-Api-Key": os.getenv("GOOGLE_PLACE_API_KEY")
+        "X-Goog-Api-Key": os.getenv("GOOGLE_PLACE_API_KEY"),
+        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.iconMaskBaseUri,places.primaryTypeDisplayName,places.location"
     }
 
     response = requests.post(os.getenv("BASE_URL"), json=data, headers=headers)
@@ -58,11 +59,20 @@ def get_data_google(query):
     if response.status_code == 200:
         # Parse the JSON response
         data = response.json()
-        print(data)
-        return data['results'][0]
+        results = {}
+        results["name"] = data["places"][0]["displayName"]["text"]
+        results["category"] = data["places"][0]["primaryTypeDisplayName"]["text"]
+        results["address"] = data["places"][0]["formattedAddress"]
+        results["logo"] = data["places"][0]["iconMaskBaseUri"]
+        results["latitude"] = data["places"][0]["location"]["latitude"]
+        results["longitude"] = data["places"][0]["location"]["longitude"]
+        return results
     else:
         # Print an error message if the request failed
-        return None
+        error_message = {}
+        error_message["statusCode"] = response.status_code
+        error_message["message"] = response._content
+        return error_message
 
 # Function to retrieve data merchant
 def get_data_merchant(merchant_name):
@@ -92,7 +102,7 @@ def get_category(detail):
         ]
     )
     result = {}
-    result["transaction_detail"] = detail
+    result["transactionDetail"] = detail
     result["category"] = vars(completion.choices[0].message)["content"]
     return result
 
@@ -140,7 +150,7 @@ async def get_categories():
 # Retrieve data merchant
 @app.post("/api/get-data-merchant")
 async def data_merchant(m: DataMerchant):
-    return get_data_merchant(m.name)
+    return get_data_google(m.name)
 
 # Categorize with LLM
 @app.post("/api/categorize-transaction")
