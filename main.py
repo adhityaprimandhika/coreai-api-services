@@ -94,13 +94,16 @@ def get_data_merchant(merchant_name):
         # Execute the query
         merchant = db.query(ModelMerchant).filter(or_(
                 str(ModelMerchant.sub_name).lower() == merchant_name.lower(),
-                ModelMerchant.sub_name.ilike(f"%{merchant_name}%")
+                ModelMerchant.sub_name.ilike(f"%{merchant_name}%"),
+                ModelMerchant.name.ilike(f"%{merchant_name}%"),
+                ModelMerchant.website.ilike(f"%{merchant_name}%"),
+                ModelMerchant.address.ilike(f"%{merchant_name}%")
             )).first()
         if merchant != None:
             # Return the result
             return merchant
         else:
-            return None
+            return get_data_google(merchant_name)
     finally:
         # Close the session
         db.close()
@@ -171,7 +174,7 @@ async def get_merchants_garage_item():
 # Retrieve data merchant
 @app.post("/api/get-data-merchant")
 async def data_merchant(m: DataMerchant):
-    return get_data_google(m.name)
+    return get_data_merchant(m.name)
 
 # Categorize with LLM
 @app.post("/api/categorize-transaction")
