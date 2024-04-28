@@ -180,3 +180,6 @@ async def data_merchant(m: DataMerchant):
 @app.post("/api/categorize-transaction")
 async def categorize_transaction(t: Transaction):
     return get_category(t)
+
+if __name__ == "__main__":
+    server = run(app, host="0.0.0.0", port=8000)
