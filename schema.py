@@ -33,6 +33,7 @@ class MerchantGarage(BaseModel):
     name: str
     category: str
     address: str
+    website: str
     logo: str
     latitude: float
     longitude: float

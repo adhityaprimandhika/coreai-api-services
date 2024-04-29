@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi_sqlalchemy import DBSessionMiddleware
 from pydantic import BaseModel, Field
 from openai import OpenAI
+from bs4 import BeautifulSoup
 
 from schema import Merchant as SchemaMerchant
 from schema import Category as SchemaCategory
@@ -17,6 +18,7 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import or_, and_
+from sqlalchemy import func
 
 import requests
 
@@ -44,29 +46,72 @@ trx_body = {
 }
 """
 
+def find_logo_url(website_url):
+    try:
+        response = requests.get(website_url, timeout=10)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        logo_image = soup.find('img', alt=lambda value: value and 'logo' in value.lower())
+        
+        if logo_image:
+            logo_src = logo_image.get('src')
+            return requests.compat.urljoin(website_url, logo_src)
+    except Exception as e:
+        print(f"Error finding logo for {website_url}: {e}")
+    return None
+
 def get_data_google(query):
-    data = {
+    searchTextData = {
         "textQuery": query
     }
 
-    headers = {
+    searchTextHeaders = {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": os.getenv("GOOGLE_PLACE_API_KEY"),
-        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.iconMaskBaseUri,places.primaryTypeDisplayName,places.location"
+        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.primaryTypeDisplayName,places.location"
     }
 
-    response = requests.post(os.getenv("BASE_URL"), json=data, headers=headers)
+    results = {}
+    response = requests.post(os.getenv("SEARCHTEXT_URL"), json=searchTextData, headers=searchTextHeaders)
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
         # Parse the JSON response
         data = response.json()
-        results = {}
+        
         results["name"] = data["places"][0]["displayName"]["text"]
         results["category"] = data["places"][0]["primaryTypeDisplayName"]["text"]
         results["address"] = data["places"][0]["formattedAddress"]
-        results["logo"] = data["places"][0]["iconMaskBaseUri"]
         results["latitude"] = data["places"][0]["location"]["latitude"]
         results["longitude"] = data["places"][0]["location"]["longitude"]
+
+        searchNearbyData = {
+            "locationRestriction": {
+                "circle": {
+                "center": {
+                    "latitude": results["latitude"],
+                    "longitude": results["longitude"]
+                },
+                "radius": 500.0
+                }
+            }
+        }
+
+        searchNearbyHeaders = {
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": os.getenv("GOOGLE_PLACE_API_KEY"),
+            "X-Goog-FieldMask": "places.websiteUri"
+        }
+
+        response = requests.post(os.getenv("SEARCHNEARBY_URL"), json=searchNearbyData, headers=searchNearbyHeaders)
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Parse the JSON response
+            data = response.json()
+            if data["places"][0].get("websiteUri") != None:
+                results["website"] = data["places"][0]["websiteUri"]
+                results["logo"] = find_logo_url(results["website"])
+            else:
+                results["website"] = ""
+                results["logo"] = ""
 
         # Check if existing in db
         db = SessionLocal()
@@ -74,7 +119,7 @@ def get_data_google(query):
         if existing_data:
             return existing_data
         else:
-            new_data = ModelMerchantGarage(name=results["name"], category=results["category"], address=results["address"], logo=results["logo"], latitude=results["latitude"], longitude=results["longitude"])
+            new_data = ModelMerchantGarage(name=results["name"], category=results["category"], address=results["address"], logo=results["logo"], latitude=results["latitude"], longitude=results["longitude"], website=results["website"])
             db.add(new_data)
             db.commit()
             db.refresh(new_data)
@@ -92,13 +137,20 @@ def get_data_merchant(merchant_name):
     db = SessionLocal()
     try:
         # Execute the query
-        merchant = db.query(ModelMerchant).filter(or_(
-                str(ModelMerchant.sub_name).lower() == merchant_name.lower(),
-                ModelMerchant.sub_name.ilike(f"%{merchant_name}%"),
-                ModelMerchant.name.ilike(f"%{merchant_name}%"),
-                ModelMerchant.website.ilike(f"%{merchant_name}%"),
-                ModelMerchant.address.ilike(f"%{merchant_name}%")
-            )).first()
+        merchant = db.query(ModelMerchant).filter(
+            or_(
+                and_(
+                    or_(
+                        func.similarity(ModelMerchant.name, merchant_name) > 0.45,
+                        func.similarity(ModelMerchant.sub_name, merchant_name) > 0.45,
+                        func.similarity(ModelMerchant.website, merchant_name) > 0.3
+                    ),
+                    func.similarity(ModelMerchant.address, merchant_name) > 0.05
+                ),
+                func.similarity(ModelMerchant.name, merchant_name) > 0.45,
+                func.similarity(ModelMerchant.sub_name, merchant_name) > 0.45
+            )
+        ).first()
         if merchant != None:
             # Return the result
             return merchant

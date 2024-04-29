@@ -7,3 +7,4 @@ fastapi-sqlalchemy
 psycopg2
 sqlalchemy
 requests
+bs4
