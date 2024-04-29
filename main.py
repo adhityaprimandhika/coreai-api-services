@@ -67,7 +67,7 @@ def get_data_google(query):
     searchTextHeaders = {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": os.getenv("GOOGLE_PLACE_API_KEY"),
-        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.primaryTypeDisplayName,places.location"
+        "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.primaryTypeDisplayName,places.location"
     }
 
     results = {}
@@ -78,40 +78,28 @@ def get_data_google(query):
         data = response.json()
         
         results["name"] = data["places"][0]["displayName"]["text"]
-        results["category"] = data["places"][0]["primaryTypeDisplayName"]["text"]
+        results["sub_name"] = data["places"][0]["displayName"]["text"]
+        if data["places"][0].get("primaryTypeDisplayName") != None:
+            results["category"] = data["places"][0]["primaryTypeDisplayName"]["text"]
+        else:
+            results["category"] = None
+        results["merchant_code"] = None
+        results["category_id"] = None # get from our model
         results["address"] = data["places"][0]["formattedAddress"]
         results["latitude"] = data["places"][0]["location"]["latitude"]
         results["longitude"] = data["places"][0]["location"]["longitude"]
 
-        searchNearbyData = {
-            "locationRestriction": {
-                "circle": {
-                "center": {
-                    "latitude": results["latitude"],
-                    "longitude": results["longitude"]
-                },
-                "radius": 500.0
-                }
-            }
-        }
-
-        searchNearbyHeaders = {
-            "Content-Type": "application/json",
-            "X-Goog-Api-Key": os.getenv("GOOGLE_PLACE_API_KEY"),
-            "X-Goog-FieldMask": "places.websiteUri"
-        }
-
-        response = requests.post(os.getenv("SEARCHNEARBY_URL"), json=searchNearbyData, headers=searchNearbyHeaders)
+        response = requests.get(str(os.getenv("SEARCHPLACES_URL"))+"place_id="+str(data["places"][0]["id"])+"&fields=website"+"&key="+str(os.getenv("GOOGLE_PLACE_API_KEY")))
         # Check if the request was successful (status code 200)
         if response.status_code == 200:
             # Parse the JSON response
             data = response.json()
-            if data["places"][0].get("websiteUri") != None:
-                results["website"] = data["places"][0]["websiteUri"]
+            if data["result"].get("website") != None:
+                results["website"] = data["result"]["website"]
                 results["logo"] = find_logo_url(results["website"])
             else:
-                results["website"] = ""
-                results["logo"] = ""
+                results["website"] = None
+                results["logo"] = None
 
         # Check if existing in db
         db = SessionLocal()
@@ -119,7 +107,7 @@ def get_data_google(query):
         if existing_data:
             return existing_data
         else:
-            new_data = ModelMerchantGarage(name=results["name"], category=results["category"], address=results["address"], logo=results["logo"], latitude=results["latitude"], longitude=results["longitude"], website=results["website"])
+            new_data = ModelMerchantGarage(name=results["name"], sub_name=results["sub_name"], merchant_code=results["merchant_code"], category_id=results["category_id"],  logo=results["logo"], website=results["website"], latitude=results["latitude"], longitude=results["longitude"], address=results["address"])
             db.add(new_data)
             db.commit()
             db.refresh(new_data)

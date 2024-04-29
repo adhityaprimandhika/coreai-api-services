@@ -31,12 +31,14 @@ class Merchant(BaseModel):
 class MerchantGarage(BaseModel):
     id: int
     name: str
-    category: str
-    address: str
-    website: str
+    sub_name: str
+    merchant_code: str
+    category_id: int
     logo: str
+    website: str
     latitude: float
     longitude: float
+    address: str
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
 
