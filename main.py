@@ -22,6 +22,11 @@ from sqlalchemy import func
 
 import requests
 
+from pandasai import SmartDataframe, Agent
+from pandasai.llm.openai import OpenAI
+import pandas as pd
+import numpy as np
+
 # Load .env file
 load_dotenv()
 
@@ -31,6 +36,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Set up sqlalchemy
 engine = create_engine(os.getenv("DB_URL"))
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 
 """
 trx_body = {
@@ -57,7 +63,7 @@ def find_logo_url(website_url):
             return requests.compat.urljoin(website_url, logo_src)
     except Exception as e:
         print(f"Error finding logo for {website_url}: {e}")
-    return None
+    return ""
 
 def get_data_google(query):
     searchTextData = {
@@ -82,8 +88,8 @@ def get_data_google(query):
         if data["places"][0].get("primaryTypeDisplayName") != None:
             results["category"] = data["places"][0]["primaryTypeDisplayName"]["text"]
         else:
-            results["category"] = None
-        results["merchant_code"] = None
+            results["category"] = ""
+        results["merchant_code"] = ""
         results["category_id"] = None # get from our model
         results["address"] = data["places"][0]["formattedAddress"]
         results["latitude"] = data["places"][0]["location"]["latitude"]
@@ -98,8 +104,8 @@ def get_data_google(query):
                 results["website"] = data["result"]["website"]
                 results["logo"] = find_logo_url(results["website"])
             else:
-                results["website"] = None
-                results["logo"] = None
+                results["website"] = ""
+                results["logo"] = ""
 
         # Check if existing in db
         db = SessionLocal()
@@ -144,6 +150,44 @@ def get_data_merchant(merchant_name):
             return merchant
         else:
             return get_data_google(merchant_name)
+    finally:
+        # Close the session
+        db.close()
+
+# Function to lowercase a string
+def lowercase_str(x):        
+    if isinstance(x, str):
+        return x.lower()
+    else:
+        return x
+
+def test_search(merchant_name):
+    db = SessionLocal()
+
+    try:
+        # Specify the columns you want to retrieve
+        columns_to_query = [
+            ModelMerchant.name,
+            ModelMerchant.sub_name,
+            ModelMerchant.address,
+            ModelMerchant.website
+        ]
+        # Execute the query
+        merchants = db.query(*columns_to_query).all()
+        # Convert results to DataFrame
+        df = pd.DataFrame(merchants)
+        print(df.head())
+        # Apply lowercase function to all string columns
+        # lowered_df = df.applymap(lowercase_str)
+        # print(lowered_df.head())
+
+        llm = OpenAI(api_token=os.getenv("OPENAI_API_KEY"))
+        sindia = SmartDataframe(df, config={'llm':llm, 'verbose': True})
+
+        response = sindia.chat('cari data dengan name yang meliputi' + merchant_name)
+        print(response)
+
+        return response
     finally:
         # Close the session
         db.close()
@@ -220,6 +264,10 @@ async def data_merchant(m: DataMerchant):
 @app.post("/api/categorize-transaction")
 async def categorize_transaction(t: Transaction):
     return get_category(t)
+
+@app.post("/api/test-pandas-ai")
+async def test_pandas_ai(m: DataMerchant):
+    return test_search(m.name)
 
 if __name__ == "__main__":
     server = run(app, host="0.0.0.0", port=8000)

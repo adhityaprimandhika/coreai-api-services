@@ -8,3 +8,9 @@ psycopg2
 sqlalchemy
 requests
 bs4
+pandasai
+pandas
+numpy
+pgvector
+matplotlib
+numpy

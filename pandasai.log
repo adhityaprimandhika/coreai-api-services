@@ -1,0 +1,1525 @@
+2024-05-02 14:41:22 [INFO] Question: cari data dengan name, sub_name, website, atau address mengandung kata arborea
+2024-05-02 14:41:24 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:41:24 [INFO] Prompt ID: 102ec7a4-0dbf-458d-a199-4ac5050fe6b6
+2024-05-02 14:41:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:41:24 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:41:24 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:41:24 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:41:24 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,id,merchant_code,logo,latitude,address,updated_at,sub_name,name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000002A91E71C470>,501,rln771,http://www.mphg.co.id/images/new-artotelgroup.png,-6.27946080,"jl harapan mulia 1 no l144/145 rt07/03 kel, rt.7/rw.3, harapan mulya, central jakarta city",2024-04-26 10:38:26.461654,toko perabot laris manis,tung's cafe,11,https://www.youtube.com/channel/ucf2bkuhvxkj7liflnmfspnw,106.88042170,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000002A91E6570B0>,1047,ebc650,"https://static.wixstatic.com/media/6988ff_bea6480ef4a64cc2825dede48b8d61fd~mv2.png/v1/fill/w_211,h_211,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20ts%20primary%20(white)-01-01%20(1).png",-6.24430560,"yudi toko, jl. raya puspitek, 25, setu, tangerang, kota tangerang selatan, banten 15339, indonesia",2024-04-26 10:38:26.461654,wingstop aeon mall bsd,jamindo general insurance. pt,10,https://www.instagram.com/johnandjames_bsd/?hl=en,106.81113470,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000002A91E657110>,1168,ssg616,http://prudential.co.id/export/system/modules/com.prudential.v2.global/resources/images/spinner.gif,-6.18056900,"jl. tanah abang i no.11, petojo sel., kota jakarta pusat",2024-04-26 10:38:26.461654,toko kue larissa muncul,pt. united insurance service,4,http://www.perfectbeautyclinic.com/,106.82537920,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name, sub_name, website, atau address mengandung kata arborea
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 14:41:24 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:41:27 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 14:41:27 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,id,merchant_code,logo,latitude,address,updated_at,sub_name,name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000002A91E71C470>,501,rln771,http://www.mphg.co.id/images/new-artotelgroup.png,-6.27946080,"jl harapan mulia 1 no l144/145 rt07/03 kel, rt.7/rw.3, harapan mulya, central jakarta city",2024-04-26 10:38:26.461654,toko perabot laris manis,tung's cafe,11,https://www.youtube.com/channel/ucf2bkuhvxkj7liflnmfspnw,106.88042170,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000002A91E6570B0>,1047,ebc650,"https://static.wixstatic.com/media/6988ff_bea6480ef4a64cc2825dede48b8d61fd~mv2.png/v1/fill/w_211,h_211,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20ts%20primary%20(white)-01-01%20(1).png",-6.24430560,"yudi toko, jl. raya puspitek, 25, setu, tangerang, kota tangerang selatan, banten 15339, indonesia",2024-04-26 10:38:26.461654,wingstop aeon mall bsd,jamindo general insurance. pt,10,https://www.instagram.com/johnandjames_bsd/?hl=en,106.81113470,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000002A91E657110>,1168,ssg616,http://prudential.co.id/export/system/modules/com.prudential.v2.global/resources/images/spinner.gif,-6.18056900,"jl. tanah abang i no.11, petojo sel., kota jakarta pusat",2024-04-26 10:38:26.461654,toko kue larissa muncul,pt. united insurance service,4,http://www.perfectbeautyclinic.com/,106.82537920,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name, sub_name, website, atau address mengandung kata arborea
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 14:41:27 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | 
+                     df['sub_name'].str.contains('arborea', case=False) | 
+                     df['website'].str.contains('arborea', case=False) | 
+                     df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+
+result = {"type": "dataframe", "value": pd.concat(filtered_data)}
+            ```
+            
+2024-05-02 14:41:27 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:41:27 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:41:27 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 14:41:27 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:41:27 [ERROR] Pipeline failed on step 6: Maximum recursion level reached
+2024-05-02 14:45:06 [INFO] Question: cari data dengan name, sub_name, website, atau address mengandung kata arborea
+2024-05-02 14:45:06 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:45:06 [INFO] Prompt ID: 6b9c65b7-41db-4920-a749-92400c524907
+2024-05-02 14:45:06 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:45:06 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:45:06 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:45:06 [INFO] Using cached response
+2024-05-02 14:45:06 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:45:06 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:45:06 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:45:06 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:45:06 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:45:06 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:45:06 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:45:06 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 14:45:06 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:45:06 [ERROR] Pipeline failed on step 6: Maximum recursion level reached
+2024-05-02 14:45:34 [INFO] Question: cari data dengan name, sub_name, website, atau address mengandung kata arborea
+2024-05-02 14:45:35 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:45:35 [INFO] Prompt ID: 61a79a82-4c28-4121-ab40-85cd2e886661
+2024-05-02 14:45:35 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:45:35 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:45:35 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:45:35 [INFO] Using cached response
+2024-05-02 14:45:35 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:45:35 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:45:35 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:45:35 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:45:35 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:45:35 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:45:35 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:45:35 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 14:45:35 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:45:35 [ERROR] Pipeline failed on step 6: Maximum recursion level reached
+2024-05-02 14:48:47 [INFO] Question: cari data dengan name, sub_name, website, atau address mengandung kata arborea
+2024-05-02 14:48:48 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:48:48 [INFO] Prompt ID: 2cda1307-b91f-400e-9640-e0fab7699721
+2024-05-02 14:48:48 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:48:48 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:48:48 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:48:48 [INFO] Using cached response
+2024-05-02 14:48:48 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:48:48 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:48:48 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:48:48 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:48:48 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:48:48 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:48:48 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:48:48 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 14:48:48 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:48:48 [ERROR] Pipeline failed on step 6: Maximum recursion level reached
+2024-05-02 14:48:52 [INFO] Question: cari data dengan name, sub_name, website, atau address mengandung kata arborea
+2024-05-02 14:48:52 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:48:52 [INFO] Prompt ID: d74db5de-29a4-42eb-a66c-0a34a6125ace
+2024-05-02 14:48:52 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:48:52 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:48:52 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:48:52 [INFO] Using cached response
+2024-05-02 14:48:52 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:48:52 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:48:52 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:48:52 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:48:52 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:48:52 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:48:52 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:48:52 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 14:48:52 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:48:52 [ERROR] Pipeline failed on step 6: Maximum recursion level reached
+2024-05-02 14:50:31 [INFO] Question: cari data dengan name, sub_name, website, atau address mengandung kata arborea
+2024-05-02 14:50:31 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:50:31 [INFO] Prompt ID: 1e6b47d4-e943-488e-a282-51b685fc8709
+2024-05-02 14:50:31 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:50:31 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:50:31 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:50:31 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:50:31 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,merchant_code,id,logo,latitude,address,updated_at,name,sub_name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F7415B0>,UTG127,1344,https://d1pddsf91ofvl9.cloudfront.net/wp-content/uploads/2023/08/27112631/cropped-Kuncie-logo-fullBlack%402x-e1658590791666.png,-6.24445310,"Jl. Kramat Raya No.27 3, RT.3/RW.2, Kramat, Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Dinda Pradana Insurance Broker. PT,Toko Annajah Rumpin,15,https://nutrijossofficial.com/,106.82084290,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F743050>,JKB820,1729,http://www.hotel88.co.id/assets/frontend_assets_88/images/logo/wh.png,-6.28069820,"WYLOZ KP BARU - Baju Kaos Olahraga Jersey Polo Shirt Sport Polos Original, Jl. Panjang Kp. Baru No.11, RT.7/RW.4, South Sukabumi, Kebonjeruk, West Jakarta City, Jakarta 11560, Indonesia",2024-04-26 10:38:26.461654,Garasi Cafe,Rude Shop,11,http://linktr.ee/lovebeau_id,106.82275690,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F71EB70>,DFO430,1040,http://www.vistaeducation.com/images/logo.png,-6.27814350,"11, Jl. Penjernihan II No.3b, RT.11/RW.6, Bend. Hilir, Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Asia Reliance General Insurance. PT,SABANA sport,9,https://tibibroker.co.id/,106.82259330,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name, sub_name, website, atau address mengandung kata arborea
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 14:50:31 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:50:34 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 14:50:34 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,merchant_code,id,logo,latitude,address,updated_at,name,sub_name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F7415B0>,UTG127,1344,https://d1pddsf91ofvl9.cloudfront.net/wp-content/uploads/2023/08/27112631/cropped-Kuncie-logo-fullBlack%402x-e1658590791666.png,-6.24445310,"Jl. Kramat Raya No.27 3, RT.3/RW.2, Kramat, Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Dinda Pradana Insurance Broker. PT,Toko Annajah Rumpin,15,https://nutrijossofficial.com/,106.82084290,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F743050>,JKB820,1729,http://www.hotel88.co.id/assets/frontend_assets_88/images/logo/wh.png,-6.28069820,"WYLOZ KP BARU - Baju Kaos Olahraga Jersey Polo Shirt Sport Polos Original, Jl. Panjang Kp. Baru No.11, RT.7/RW.4, South Sukabumi, Kebonjeruk, West Jakarta City, Jakarta 11560, Indonesia",2024-04-26 10:38:26.461654,Garasi Cafe,Rude Shop,11,http://linktr.ee/lovebeau_id,106.82275690,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F71EB70>,DFO430,1040,http://www.vistaeducation.com/images/logo.png,-6.27814350,"11, Jl. Penjernihan II No.3b, RT.11/RW.6, Bend. Hilir, Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Asia Reliance General Insurance. PT,SABANA sport,9,https://tibibroker.co.id/,106.82259330,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name, sub_name, website, atau address mengandung kata arborea
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 14:50:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | 
+                     df['sub_name'].str.contains('arborea', case=False) | 
+                     df['website'].str.contains('arborea', case=False) | 
+                     df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+
+result = {"type": "dataframe", "value": filtered_data}
+            ```
+            
+2024-05-02 14:50:35 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:50:35 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:50:35 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': filtered_data}
+        ```
+2024-05-02 14:50:35 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:50:35 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\67240\Documents\ODP IT BNI - 2023\CoreAI API Services\api-env\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'list'> must match with type dataframe
+
+2024-05-02 14:50:35 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-05-02 14:50:35 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-05-02 14:50:35 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-05-02 14:50:35 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,merchant_code,id,logo,latitude,address,updated_at,name,sub_name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F7415B0>,UTG127,1344,https://d1pddsf91ofvl9.cloudfront.net/wp-content/uploads/2023/08/27112631/cropped-Kuncie-logo-fullBlack%402x-e1658590791666.png,-6.24445310,"Jl. Kramat Raya No.27 3, RT.3/RW.2, Kramat, Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Dinda Pradana Insurance Broker. PT,Toko Annajah Rumpin,15,https://nutrijossofficial.com/,106.82084290,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F743050>,JKB820,1729,http://www.hotel88.co.id/assets/frontend_assets_88/images/logo/wh.png,-6.28069820,"WYLOZ KP BARU - Baju Kaos Olahraga Jersey Polo Shirt Sport Polos Original, Jl. Panjang Kp. Baru No.11, RT.7/RW.4, South Sukabumi, Kebonjeruk, West Jakarta City, Jakarta 11560, Indonesia",2024-04-26 10:38:26.461654,Garasi Cafe,Rude Shop,11,http://linktr.ee/lovebeau_id,106.82275690,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x000001E60F71EB70>,DFO430,1040,http://www.vistaeducation.com/images/logo.png,-6.27814350,"11, Jl. Penjernihan II No.3b, RT.11/RW.6, Bend. Hilir, Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Asia Reliance General Insurance. PT,SABANA sport,9,https://tibibroker.co.id/,106.82259330,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ cari data dengan name, sub_name, website, atau address mengandung kata arborea
+
+You generated this python code:
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('arborea', case=False) | df['sub_name'].str.contains('arborea', case=False) | df['website'].str.contains('arborea', case=False) | df['address'].str.contains('arborea', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': filtered_data}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\67240\Documents\ODP IT BNI - 2023\CoreAI API Services\api-env\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'list'> must match with type dataframe
+
+
+Fix the python code above and return the new python code:
+2024-05-02 14:50:35 [INFO] Executing Step 1: CodeGenerator
+2024-05-02 14:50:37 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 14:50:37 [ERROR] Pipeline failed on step 1: No code found in the response
+2024-05-02 14:50:37 [ERROR] Pipeline failed on step 6: No code found in the response
+2024-05-02 14:52:24 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 14:52:26 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:52:26 [INFO] Prompt ID: 54c9b309-df6c-4b29-8ed7-d90a20c3fc44
+2024-05-02 14:52:26 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:52:26 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:52:26 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:52:26 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:52:26 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,id,merchant_code,logo,latitude,address,updated_at,sub_name,name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x0000025A18C99610>,911,TTA282,https://digital.ihg.com/is/image/ihg/holiday-inn-express-r-logo-pos-blue-rgb-en?fmt=png-alpha,-6.30190090,"Gandaria City, Jl. Arteri Pd. Indah No.247 Lantai 2, North Kebayoran Lama, South Jakarta City",2024-04-26 10:38:26.461654,Regina Beauty Salon,Café 24 Hours,2,https://kaleiajakarta.com/,106.82072900,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x0000025A18B59970>,1147,TBB254,https://bhinnekalife.com/assets/frontend/images/logo.png,-6.39005790,"Warung Pecak Duren, Kranggan, Kec. Setu, Kota Tangerang Selatan, Banten 15312, Indonesia",2024-04-26 10:38:26.461654,Trans Fashion Indonesia,IC Education,13,https://theallabun.com/,106.79830600,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x0000025A18BAB6B0>,895,TEF775,https://www.pascaleducation.com/~img/logo_pascal_edu-d213b-3140_103-t3140_107.webp,-6.37664760,"Wisma, Jl. Hayam Wuruk No.8 6, RT.6/RW.2, Kb. Klp., Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Toko berkah jaya perabot dan elektronik,Axa Mandiri Insurance,14,http://www.grandparagonjakarta.com/,106.68319820,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Arborea Café
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 14:52:26 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:52:29 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 14:52:29 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:1734x13
+_sa_instance_state,id,merchant_code,logo,latitude,address,updated_at,sub_name,name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x0000025A18C99610>,911,TTA282,https://digital.ihg.com/is/image/ihg/holiday-inn-express-r-logo-pos-blue-rgb-en?fmt=png-alpha,-6.30190090,"Gandaria City, Jl. Arteri Pd. Indah No.247 Lantai 2, North Kebayoran Lama, South Jakarta City",2024-04-26 10:38:26.461654,Regina Beauty Salon,Café 24 Hours,2,https://kaleiajakarta.com/,106.82072900,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x0000025A18B59970>,1147,TBB254,https://bhinnekalife.com/assets/frontend/images/logo.png,-6.39005790,"Warung Pecak Duren, Kranggan, Kec. Setu, Kota Tangerang Selatan, Banten 15312, Indonesia",2024-04-26 10:38:26.461654,Trans Fashion Indonesia,IC Education,13,https://theallabun.com/,106.79830600,2024-04-26 10:38:26.461654
+<sqlalchemy.orm.state.InstanceState object at 0x0000025A18BAB6B0>,895,TEF775,https://www.pascaleducation.com/~img/logo_pascal_edu-d213b-3140_103-t3140_107.webp,-6.37664760,"Wisma, Jl. Hayam Wuruk No.8 6, RT.6/RW.2, Kb. Klp., Kota Jakarta Pusat",2024-04-26 10:38:26.461654,Toko berkah jaya perabot dan elektronik,Axa Mandiri Insurance,14,http://www.grandparagonjakarta.com/,106.68319820,2024-04-26 10:38:26.461654
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Arborea Café
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 14:52:29 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+dfs_filtered = [df[df['name'] == 'Arborea Café'] for df in dfs]
+
+# Declare result var
+result = {"type": "dataframe", "value": pd.concat(dfs_filtered)}
+            ```
+            
+2024-05-02 14:52:29 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:52:29 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:52:29 [INFO] 
+Code running:
+```
+dfs_filtered = [df[df['name'] == 'Arborea Café'] for df in dfs]
+result = {'type': 'dataframe', 'value': pd.concat(dfs_filtered)}
+        ```
+2024-05-02 14:52:29 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:52:29 [ERROR] Pipeline failed on step 6: Maximum recursion level reached
+2024-05-02 14:53:19 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 14:53:21 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:53:21 [INFO] Prompt ID: fc787277-5078-4038-b86f-9a30508132d4
+2024-05-02 14:53:21 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:53:21 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:53:21 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:53:21 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:53:21 [INFO] Using prompt: <dataframe>
+dfs[0]:6x13
+_sa_instance_state,id,merchant_code,logo,latitude,address,updated_at,name,sub_name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2810>,5,,,-6.32023720,"RPVP+58X, RT.10/RW.2, Rawa Buaya, Cengkareng, West Jakarta City, Jakarta 11740, Indonesia",2024-05-02 06:34:39.673252,Kopi Kenangan - BP BSD Delatinos,Omija - Central Park,,,106.68175860,2024-05-02 02:27:58.065355
+<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2750>,6,,,-6.15730300,"Jl. Raya Viktor Bsd No.87, Ciater, Kec. Serpong, Kota Tangerang Selatan, Banten 15310, Indonesia",2024-05-02 03:54:41.612288,Lampo Neapolitan Pizzeria,Lampoh coffee,,http://www.lampopizza.com/,106.68326700,2024-05-02 03:54:41.612288
+<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2870>,3,,,-6.18651630,"Central Park Office, RT.12/RW.6, South Tanjung Duren, Grogol petamburan, West Jakarta City, Jakarta 11470, Indonesia",2024-05-02 02:27:58.065355,Lampoh Coffee BSD,Kopi Kenangan - Skyline,,http://www.kopikenangan.com/,-78.47685940,2024-05-02 02:29:06.001075
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Arborea Café
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 14:53:21 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:53:31 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 14:53:31 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6x13
+_sa_instance_state,id,merchant_code,logo,latitude,address,updated_at,name,sub_name,category_id,website,longitude,created_at
+<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2810>,5,,,-6.32023720,"RPVP+58X, RT.10/RW.2, Rawa Buaya, Cengkareng, West Jakarta City, Jakarta 11740, Indonesia",2024-05-02 06:34:39.673252,Kopi Kenangan - BP BSD Delatinos,Omija - Central Park,,,106.68175860,2024-05-02 02:27:58.065355
+<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2750>,6,,,-6.15730300,"Jl. Raya Viktor Bsd No.87, Ciater, Kec. Serpong, Kota Tangerang Selatan, Banten 15310, Indonesia",2024-05-02 03:54:41.612288,Lampo Neapolitan Pizzeria,Lampoh coffee,,http://www.lampopizza.com/,106.68326700,2024-05-02 03:54:41.612288
+<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2870>,3,,,-6.18651630,"Central Park Office, RT.12/RW.6, South Tanjung Duren, Grogol petamburan, West Jakarta City, Jakarta 11470, Indonesia",2024-05-02 02:27:58.065355,Lampoh Coffee BSD,Kopi Kenangan - Skyline,,http://www.kopikenangan.com/,-78.47685940,2024-05-02 02:29:06.001075
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Arborea Café
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 14:53:31 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+dfs = [pd.DataFrame({
+    '_sa_instance_state': ['<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2810>', '<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2750>', '<sqlalchemy.orm.state.InstanceState object at 0x000002548B4A2870>'],
+    'id': [5, 6, 3],
+    'merchant_code': ['', '', ''],
+    'logo': ['', '', ''],
+    'latitude': [-6.32023720, -6.15730300, -6.18651630],
+    'address': ['RPVP+58X, RT.10/RW.2, Rawa Buaya, Cengkareng, West Jakarta City, Jakarta 11740, Indonesia', 'Jl. Raya Viktor Bsd No.87, Ciater, Kec. Serpong, Kota Tangerang Selatan, Banten 15310, Indonesia', 'Central Park Office, RT.12/RW.6, South Tanjung Duren, Grogol petamburan, West Jakarta City, Jakarta 11470, Indonesia'],
+    'updated_at': ['2024-05-02 06:34:39.673252', '2024-05-02 03:54:41.612288', '2024-05-02 02:27:58.065355'],
+    'name': ['Kopi Kenangan - BP BSD Delatinos', 'Lampo Neapolitan Pizzeria', 'Lampoh Coffee BSD'],
+    'sub_name': ['Omija - Central Park', 'Lampoh coffee', 'Kopi Kenangan - Skyline'],
+    'category_id': ['', '', ''],
+    'website': ['', 'http://www.lampopizza.com/', 'http://www.kopikenangan.com/'],
+    'longitude': [106.68175860, 106.68326700, -78.47685940],
+    'created_at': ['2024-05-02 02:27:58.065355', '2024-05-02 03:54:41.612288', '2024-05-02 02:29:06.001075']
+})]
+
+# Filter data with name = Arborea Café
+result_df = dfs[0][dfs[0]['name'] == 'Arborea Café']
+
+# Declare result var
+result = {"type": "dataframe", "value": result_df}
+            ```
+            
+2024-05-02 14:53:31 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:53:31 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:53:31 [INFO] 
+Code running:
+```
+result_df = dfs[0][dfs[0]['name'] == 'Arborea Café']
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 14:53:31 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:53:31 [INFO] Executing Step 7: ResultValidation
+2024-05-02 14:53:31 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [_sa_instance_state, id, merchant_code, logo, latitude, address, updated_at, name, sub_name, category_id, website, longitude, created_at]
+Index: []}
+2024-05-02 14:53:31 [INFO] Executing Step 8: ResultParsing
+2024-05-02 14:55:51 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 14:55:52 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:55:52 [INFO] Prompt ID: 4a1ff104-bf32-4487-a715-73b372690793
+2024-05-02 14:55:52 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:55:52 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:55:52 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:55:52 [INFO] Using cached response
+2024-05-02 14:55:52 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:55:52 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:55:52 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:55:52 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:55:52 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:55:52 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:55:52 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:55:52 [INFO] 
+Code running:
+```
+result_df = dfs[0][dfs[0]['name'] == 'Arborea Café']
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 14:55:52 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:55:52 [INFO] Executing Step 7: ResultValidation
+2024-05-02 14:55:52 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [_sa_instance_state, id, merchant_code, logo, latitude, address, updated_at, name, sub_name, category_id, website, longitude, created_at]
+Index: []}
+2024-05-02 14:55:52 [INFO] Executing Step 8: ResultParsing
+2024-05-02 14:58:04 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 14:58:05 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:58:05 [INFO] Prompt ID: 3a3d17dc-5251-450d-b91d-855ea8a220b9
+2024-05-02 14:58:05 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:58:05 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:58:05 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:58:05 [INFO] Using cached response
+2024-05-02 14:58:05 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:58:05 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:58:05 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:58:05 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:58:05 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:58:05 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:58:05 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:58:05 [INFO] 
+Code running:
+```
+result_df = dfs[0][dfs[0]['name'] == 'Arborea Café']
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 14:58:05 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:58:05 [INFO] Executing Step 7: ResultValidation
+2024-05-02 14:58:05 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [_sa_instance_state, id, merchant_code, logo, latitude, address, updated_at, name, sub_name, category_id, website, longitude, created_at]
+Index: []}
+2024-05-02 14:58:05 [INFO] Executing Step 8: ResultParsing
+2024-05-02 14:58:51 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 14:58:51 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:58:52 [INFO] Prompt ID: 2efc4360-22dc-4082-b7c2-b88ab8d1e102
+2024-05-02 14:58:52 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:58:52 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:58:52 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:58:52 [INFO] Using cached response
+2024-05-02 14:58:52 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:58:52 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:58:52 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:58:52 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:58:52 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:58:52 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:58:52 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:58:52 [INFO] 
+Code running:
+```
+result_df = dfs[0][dfs[0]['name'] == 'Arborea Café']
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 14:58:52 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:58:52 [INFO] Executing Step 7: ResultValidation
+2024-05-02 14:58:52 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [_sa_instance_state, id, merchant_code, logo, latitude, address, updated_at, name, sub_name, category_id, website, longitude, created_at]
+Index: []}
+2024-05-02 14:58:52 [INFO] Executing Step 8: ResultParsing
+2024-05-02 14:59:32 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 14:59:33 [INFO] Running PandasAI with openai LLM...
+2024-05-02 14:59:33 [INFO] Prompt ID: 84381f56-7130-464b-aa1a-bd3e30400c59
+2024-05-02 14:59:33 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 14:59:33 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 14:59:33 [INFO] Executing Step 1: CacheLookup
+2024-05-02 14:59:33 [INFO] Using cached response
+2024-05-02 14:59:33 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 14:59:33 [INFO] Executing Step 2: Skipping...
+2024-05-02 14:59:33 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 14:59:33 [INFO] Executing Step 3: Skipping...
+2024-05-02 14:59:33 [INFO] Executing Step 4: CachePopulation
+2024-05-02 14:59:33 [INFO] Executing Step 4: Skipping...
+2024-05-02 14:59:33 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 14:59:33 [INFO] 
+Code running:
+```
+dfs_filtered = [df[df['name'] == 'Arborea Café'] for df in dfs]
+result = {'type': 'dataframe', 'value': pd.concat(dfs_filtered)}
+        ```
+2024-05-02 14:59:33 [INFO] Executing Step 6: CodeExecution
+2024-05-02 14:59:33 [INFO] Executing Step 7: ResultValidation
+2024-05-02 14:59:33 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [_sa_instance_state, id, merchant_code, logo, latitude, address, updated_at, sub_name, name, category_id, website, longitude, created_at]
+Index: []}
+2024-05-02 14:59:33 [INFO] Executing Step 8: ResultParsing
+2024-05-02 15:08:11 [INFO] Question: cari data dengan name = arborea café
+2024-05-02 15:08:12 [INFO] Running PandasAI with openai LLM...
+2024-05-02 15:08:12 [INFO] Prompt ID: 4b4d4c4b-0d3c-483a-8b63-2cbeb3c7db43
+2024-05-02 15:08:12 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 15:08:12 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 15:08:12 [INFO] Executing Step 1: CacheLookup
+2024-05-02 15:08:12 [ERROR] Pipeline failed on step 1: sequence item 0: expected str instance, int found
+2024-05-02 15:09:05 [INFO] Question: cari data dengan name = arborea café
+2024-05-02 15:09:07 [INFO] Running PandasAI with openai LLM...
+2024-05-02 15:09:07 [INFO] Prompt ID: 4182e5b5-e4b3-41ba-9528-eb9b72e6759b
+2024-05-02 15:09:07 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 15:09:07 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 15:09:07 [INFO] Executing Step 1: CacheLookup
+2024-05-02 15:09:07 [ERROR] Pipeline failed on step 1: sequence item 0: expected str instance, int found
+2024-05-02 17:21:34 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 17:21:36 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:21:36 [INFO] Prompt ID: 97eb5cde-cdaa-4c9e-aa15-e96b2895ee84
+2024-05-02 17:21:36 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:21:36 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:21:36 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:21:37 [ERROR] Pipeline failed on step 1: sequence item 0: expected str instance, int found
+2024-05-02 17:25:18 [INFO] Question: cari data dengan name = Arborea Café
+2024-05-02 17:25:21 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:25:21 [INFO] Prompt ID: ba37ad25-2e14-42aa-8a53-b2213c8bd928
+2024-05-02 17:25:21 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:25:21 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:25:21 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:25:21 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:25:21 [INFO] Using prompt: <dataframe>
+dfs[0]:15x4
+name,sub_name,address,website
+SeaWorld Orlando,Pizza Hut Restoran - BSD,"MJVV+X36, Jl. Grand Boulevard BSD City, Pagedangan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15345, Indonesia",
+Starbucks,Ancol,"Jl. Kemiri No. 2x2, RT.4/RW.3, Gondangdia, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10350, Indonesia",http://www.kopikenangan.com/
+Trans Studio Bandung,Kopi Kenangan - BP BSD Delatinos,"Kecamatan Batununggal, Trans Studio Mall, Jl. Gatot Subroto No.289A, Cibangkong, Kec. Batununggal, Kota Bandung, Jawa Barat 40273, Indonesia",
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Arborea Café
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 17:25:21 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:25:25 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 17:25:25 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:15x4
+name,sub_name,address,website
+SeaWorld Orlando,Pizza Hut Restoran - BSD,"MJVV+X36, Jl. Grand Boulevard BSD City, Pagedangan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15345, Indonesia",
+Starbucks,Ancol,"Jl. Kemiri No. 2x2, RT.4/RW.3, Gondangdia, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10350, Indonesia",http://www.kopikenangan.com/
+Trans Studio Bandung,Kopi Kenangan - BP BSD Delatinos,"Kecamatan Batununggal, Trans Studio Mall, Jl. Gatot Subroto No.289A, Cibangkong, Kec. Batununggal, Kota Bandung, Jawa Barat 40273, Indonesia",
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Arborea Café
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 17:25:25 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+for df in dfs:
+    if 'name' in df.columns and 'sub_name' in df.columns and 'address' in df.columns and 'website' in df.columns:
+        result_df = df[df['name'] == 'Arborea Café']
+        if not result_df.empty:
+            result = {"type": "dataframe", "value": result_df}
+            break
+
+if 'result' not in locals():
+    result = {"type": "string", "value": "Data with name 'Arborea Café' not found."}
+            ```
+            
+2024-05-02 17:25:25 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:25:25 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:25:25 [INFO] 
+Code running:
+```
+for df in dfs:
+    if 'name' in df.columns and 'sub_name' in df.columns and 'address' in df.columns and 'website' in df.columns:
+        result_df = df[df['name'] == 'Arborea Café']
+        if not result_df.empty:
+            result = {'type': 'dataframe', 'value': result_df}
+            break
+if 'result' not in locals():
+    result = {'type': 'string', 'value': "Data with name 'Arborea Café' not found."}
+        ```
+2024-05-02 17:25:25 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:25:25 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:25:25 [INFO] Answer: {'type': 'string', 'value': "Data with name 'Arborea Café' not found."}
+2024-05-02 17:25:25 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:26:23 [INFO] Question: cari data dengan name = Hotel Santika
+2024-05-02 17:26:24 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:26:24 [INFO] Prompt ID: 9726cf81-33f5-4e56-a16b-e7588b816a7c
+2024-05-02 17:26:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:26:24 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:26:24 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:26:24 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:26:24 [INFO] Using prompt: <dataframe>
+dfs[0]:15x4
+name,sub_name,address,website
+Bebek Carok - BSD City,Ancol,"BSD Ruko Plaza Sektor VII, Jl. Pahlawan Seribu No.48, Lengkong Wetan, Kec. Serpong, Kabupaten Tangerang, Banten 15318, Indonesia",https://www.transentertainment.com/transstudio/bandung
+Kopi Kenangan - BP BSD Delatinos,Dufan Ancol,"7007 Sea World Dr, Orlando, FL 32821, USA",
+FamilyMart MENARA BNI PEJOMPONGAN,Hotel Santika BSD City - Serpong,"Teraskota Entertainment Center, CBD Lot, Jl. Pahlawan Seribu VII B, Lengkong Gudang, Kec. Serpong, Kota Tangerang Selatan, Banten 15311, Indonesia",https://mysantika.com/indonesia/tangerang-selatan/hotel-santika-bsd-city-serpong
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Hotel Santika
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 17:26:24 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:26:26 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 17:26:26 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:15x4
+name,sub_name,address,website
+Bebek Carok - BSD City,Ancol,"BSD Ruko Plaza Sektor VII, Jl. Pahlawan Seribu No.48, Lengkong Wetan, Kec. Serpong, Kabupaten Tangerang, Banten 15318, Indonesia",https://www.transentertainment.com/transstudio/bandung
+Kopi Kenangan - BP BSD Delatinos,Dufan Ancol,"7007 Sea World Dr, Orlando, FL 32821, USA",
+FamilyMart MENARA BNI PEJOMPONGAN,Hotel Santika BSD City - Serpong,"Teraskota Entertainment Center, CBD Lot, Jl. Pahlawan Seribu VII B, Lengkong Gudang, Kec. Serpong, Kota Tangerang Selatan, Banten 15311, Indonesia",https://mysantika.com/indonesia/tangerang-selatan/hotel-santika-bsd-city-serpong
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name = Hotel Santika
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 17:26:26 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+for df in dfs:
+    result_df = df[df['name'] == 'Hotel Santika']
+
+result = {"type": "dataframe", "value": result_df}
+            ```
+            
+2024-05-02 17:26:26 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:26:26 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:26:26 [INFO] 
+Code running:
+```
+for df in dfs:
+    result_df = df[df['name'] == 'Hotel Santika']
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 17:26:26 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:26:26 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:26:26 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [name, sub_name, address, website]
+Index: []}
+2024-05-02 17:26:26 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:27:20 [INFO] Question: cari data dengan name yang meliputiHotel Santika
+2024-05-02 17:27:21 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:27:21 [INFO] Prompt ID: 33281af9-35e9-4dd5-aa1e-aa05faf3cb3a
+2024-05-02 17:27:21 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:27:21 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:27:21 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:27:21 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:27:21 [INFO] Using prompt: <dataframe>
+dfs[0]:15x4
+name,sub_name,address,website
+FamilyMart MENARA BNI PEJOMPONGAN,Cosan Seturan,"7007 Sea World Dr, Orlando, FL 32821, USA",http://www.kopikenangan.com/
+Dufan Ancol,Chatime Teras kota BSD,"Lantai 1, The East, Lingkar Mega Kuningan No.1, RT.5/RW.2, Kuningan, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12950, Indonesia",
+Bebek Carok - BSD City,ACE HARDWARE - AEON BSD,"Teraskota Entertainment Center, CBD Lot, Jl. Pahlawan Seribu VII B, Lengkong Gudang, Kec. Serpong, Kota Tangerang Selatan, Banten 15311, Indonesia",https://mysantika.com/indonesia/tangerang-selatan/hotel-santika-bsd-city-serpong
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputiHotel Santika
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 17:27:21 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:27:24 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 17:27:24 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:15x4
+name,sub_name,address,website
+FamilyMart MENARA BNI PEJOMPONGAN,Cosan Seturan,"7007 Sea World Dr, Orlando, FL 32821, USA",http://www.kopikenangan.com/
+Dufan Ancol,Chatime Teras kota BSD,"Lantai 1, The East, Lingkar Mega Kuningan No.1, RT.5/RW.2, Kuningan, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12950, Indonesia",
+Bebek Carok - BSD City,ACE HARDWARE - AEON BSD,"Teraskota Entertainment Center, CBD Lot, Jl. Pahlawan Seribu VII B, Lengkong Gudang, Kec. Serpong, Kota Tangerang Selatan, Banten 15311, Indonesia",https://mysantika.com/indonesia/tangerang-selatan/hotel-santika-bsd-city-serpong
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputiHotel Santika
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 17:27:24 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+filtered_data = []
+for df in dfs:
+    if 'name' in df.columns:
+        filtered_data.append(df[df['name'].str.contains('Hotel Santika', case=False)])
+
+result = {"type": "dataframe", "value": pd.concat(filtered_data)}
+            ```
+            
+2024-05-02 17:27:24 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:27:24 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:27:24 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    if 'name' in df.columns:
+        filtered_data.append(df[df['name'].str.contains('Hotel Santika', case=False)])
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 17:27:24 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:27:24 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:27:24 [INFO] Answer: {'type': 'dataframe', 'value':                                 name  ...                                            website
+12  Hotel Santika BSD City - Serpong  ...  https://mysantika.com/indonesia/tangerang-sela...
+
+[1 rows x 4 columns]}
+2024-05-02 17:27:24 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:28:49 [INFO] Question: cari data dengan name yang meliputiHotel Santika
+2024-05-02 17:28:50 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:28:50 [INFO] Prompt ID: cecacf1c-4e16-4390-a1bf-3ee7fd84a1ea
+2024-05-02 17:28:50 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:28:50 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:28:50 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:28:50 [INFO] Using cached response
+2024-05-02 17:28:50 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:28:50 [INFO] Executing Step 2: Skipping...
+2024-05-02 17:28:50 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:28:50 [INFO] Executing Step 3: Skipping...
+2024-05-02 17:28:50 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:28:50 [INFO] Executing Step 4: Skipping...
+2024-05-02 17:28:50 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:28:50 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    if 'name' in df.columns:
+        filtered_data.append(df[df['name'].str.contains('Hotel Santika', case=False)])
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 17:28:50 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:28:50 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:28:50 [INFO] Answer: {'type': 'dataframe', 'value': Empty DataFrame
+Columns: [name, sub_name, address, website]
+Index: []}
+2024-05-02 17:28:51 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:29:56 [INFO] Question: cari data dengan name yang meliputiKawisari
+2024-05-02 17:29:56 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:29:56 [INFO] Prompt ID: 373a2131-c996-4983-b798-98225ed7cda3
+2024-05-02 17:29:56 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:29:56 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:29:56 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:29:57 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:29:57 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x4
+name,sub_name,address,website
+Workroom Coffee,Ximple Education,"Toko dan sayuruan mpok may, Jalan Kebon Kopi No.25, RT.02/RW.06, Kebon kopi, Pengasinan, Kec. Gn. Sindur, Kabupaten Bogor, Jawa Barat, Indonesia",https://transtama.com/
+IDP Education,Toko Kevin,"PJ9P+3VQ Sekai Ramen & Sushi, Lengkong Kulon, Pagedangan, Tangerang Regency, Banten 15331, Indonesia",https://instagram.com/gadogado_makgobang?igshid=MmJiY2I4NDBkZg
+Tiku Cafe 98,Clofiye Beauty Bar,"Menara Imperium, Jl. H. R. Rasuna Said No.1 Lantai 18, RT.1/RW.6, Guntur, Kota Jakarta Selatan",https://www.ihg.com/holidayinnexpress/hotels/us/en/jakarta/jktjm/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-ID-_-JKTJM
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputiKawisari
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 17:29:57 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:29:59 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 17:29:59 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:1734x4
+name,sub_name,address,website
+Workroom Coffee,Ximple Education,"Toko dan sayuruan mpok may, Jalan Kebon Kopi No.25, RT.02/RW.06, Kebon kopi, Pengasinan, Kec. Gn. Sindur, Kabupaten Bogor, Jawa Barat, Indonesia",https://transtama.com/
+IDP Education,Toko Kevin,"PJ9P+3VQ Sekai Ramen & Sushi, Lengkong Kulon, Pagedangan, Tangerang Regency, Banten 15331, Indonesia",https://instagram.com/gadogado_makgobang?igshid=MmJiY2I4NDBkZg
+Tiku Cafe 98,Clofiye Beauty Bar,"Menara Imperium, Jl. H. R. Rasuna Said No.1 Lantai 18, RT.1/RW.6, Guntur, Kota Jakarta Selatan",https://www.ihg.com/holidayinnexpress/hotels/us/en/jakarta/jktjm/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-ID-_-JKTJM
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputiKawisari
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 17:29:59 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('Kawisari', case=False)]
+    filtered_data.append(filtered_df)
+
+result = {"type": "dataframe", "value": pd.concat(filtered_data)}
+            ```
+            
+2024-05-02 17:29:59 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:29:59 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:29:59 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('Kawisari', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 17:29:59 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:30:00 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:30:00 [INFO] Answer: {'type': 'dataframe', 'value':                      name                sub_name                                            address                     website
+3  Kawisari Cafe & Eatery  Kawisari Cafe & Eatery  Jl. Kebon Sirih No.77A, RT.1/RW.1, Kb. Sirih, ...  http://kawisaricoffee.com/}
+2024-05-02 17:30:00 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:32:03 [INFO] Question: cari data dengan name yang meliputiKawisari
+2024-05-02 17:32:03 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:32:03 [INFO] Prompt ID: 460728dc-2347-4d1c-9f19-114c4c64e729
+2024-05-02 17:32:03 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:32:03 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:32:03 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:32:03 [INFO] Using cached response
+2024-05-02 17:32:03 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:32:03 [INFO] Executing Step 2: Skipping...
+2024-05-02 17:32:04 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:32:04 [INFO] Executing Step 3: Skipping...
+2024-05-02 17:32:04 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:32:04 [INFO] Executing Step 4: Skipping...
+2024-05-02 17:32:04 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:32:04 [INFO] 
+Code running:
+```
+filtered_data = []
+for df in dfs:
+    filtered_df = df[df['name'].str.contains('Kawisari', case=False)]
+    filtered_data.append(filtered_df)
+result = {'type': 'dataframe', 'value': pd.concat(filtered_data)}
+        ```
+2024-05-02 17:32:04 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:32:04 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:32:04 [INFO] Answer: {'type': 'dataframe', 'value':                      name                sub_name                                            address                     website
+3  Kawisari Cafe & Eatery  Kawisari Cafe & Eatery  Jl. Kebon Sirih No.77A, RT.1/RW.1, Kb. Sirih, ...  http://kawisaricoffee.com/}
+2024-05-02 17:32:04 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:32:33 [INFO] Question: cari data dengan name yang meliputigrowink
+2024-05-02 17:32:33 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:32:33 [INFO] Prompt ID: cf99d125-eb02-49cc-8acf-e5e7cc940237
+2024-05-02 17:32:33 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:32:33 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:32:33 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:32:33 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:32:33 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x4
+name,sub_name,address,website
+Kevin Sport,Toko Tembakau Rizky,"MMGM+J6C Rumah Makan CIGANEA, Jalan Ciater Barat Raya, Ciater, Serpong, Ciater, Kec. Serpong, Kota Tangerang Selatan, Banten 15318, Indonesia",http://www.angkasapuraretail.com/
+Immanuel Cafe,Townhouse Oak Grand Orienchi,"Jl. K.H. Wahid Hasyim No.127, Kb. Kacang, Kota Jakarta Pusat",https://media-link.jh-aiti.net/
+Puskesmas Kelurahan Galur,Klinik Utama Medialys,"Blok M Square Lantai 3 #123, Jakarta Selatan, RT.2/RW.1, Melawai, Kota Jakarta Selatan",http://www.badaglobal.com/
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputigrowink
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 17:32:33 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:32:40 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 17:32:40 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:1734x4
+name,sub_name,address,website
+Kevin Sport,Toko Tembakau Rizky,"MMGM+J6C Rumah Makan CIGANEA, Jalan Ciater Barat Raya, Ciater, Serpong, Ciater, Kec. Serpong, Kota Tangerang Selatan, Banten 15318, Indonesia",http://www.angkasapuraretail.com/
+Immanuel Cafe,Townhouse Oak Grand Orienchi,"Jl. K.H. Wahid Hasyim No.127, Kb. Kacang, Kota Jakarta Pusat",https://media-link.jh-aiti.net/
+Puskesmas Kelurahan Galur,Klinik Utama Medialys,"Blok M Square Lantai 3 #123, Jakarta Selatan, RT.2/RW.1, Melawai, Kota Jakarta Selatan",http://www.badaglobal.com/
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputigrowink
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 17:32:40 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+dfs = [pd.DataFrame({
+    'name': ['Kevin Sport', 'Immanuel Cafe', 'Puskesmas Kelurahan Galur'],
+    'sub_name': ['Toko Tembakau Rizky', 'Townhouse Oak Grand Orienchi', 'Klinik Utama Medialys'],
+    'address': ['MMGM+J6C Rumah Makan CIGANEA, Jalan Ciater Barat Raya, Ciater, Serpong, Ciater, Kec. Serpong, Kota Tangerang Selatan, Banten 15318, Indonesia',
+                'Jl. K.H. Wahid Hasyim No.127, Kb. Kacang, Kota Jakarta Pusat',
+                'Blok M Square Lantai 3 #123, Jakarta Selatan, RT.2/RW.1, Melawai, Kota Jakarta Selatan'],
+    'website': ['http://www.angkasapuraretail.com/', 'https://media-link.jh-aiti.net/', 'http://www.badaglobal.com/']
+})]
+
+# Filter data with name containing 'growink'
+result_df = dfs[0][dfs[0]['name'].str.contains('growink', case=False)]
+
+# Declare result var
+result = {"type": "dataframe", "value": result_df}
+            ```
+            
+2024-05-02 17:32:40 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:32:40 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:32:40 [INFO] 
+Code running:
+```
+result_df = dfs[0][dfs[0]['name'].str.contains('growink', case=False)]
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 17:32:40 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:32:40 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:32:40 [INFO] Answer: {'type': 'dataframe', 'value':             name      sub_name                                            address website
+10  Growink Cafe  Growink Cafe  Wisma Keiai, Jl. Jenderal Sudirman No.Kav 3 La...        }
+2024-05-02 17:32:40 [INFO] Executing Step 8: ResultParsing
+2024-05-02 17:33:02 [INFO] Question: cari data dengan name yang meliputicafe
+2024-05-02 17:33:02 [INFO] Running PandasAI with openai LLM...
+2024-05-02 17:33:02 [INFO] Prompt ID: 23a21116-350a-4d2a-be43-d323c53dc8ff
+2024-05-02 17:33:02 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-02 17:33:02 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-02 17:33:02 [INFO] Executing Step 1: CacheLookup
+2024-05-02 17:33:02 [INFO] Executing Step 2: PromptGeneration
+2024-05-02 17:33:02 [INFO] Using prompt: <dataframe>
+dfs[0]:1734x4
+name,sub_name,address,website
+Cosmo Education,Toko Sebelas,"Raya Blok B5, Jl. Dermaga Blok G No.4, RT.3/RW.11, Klender, Kota Jakarta Timur",http://baksowonogirionline.blogspot.com/
+Tempat mencari rejeki,Toko alat tulis,"Jl. Panglima Polim No.49A 1, RT.1/RW.6, Melawai, Kota Jakarta Selatan",https://www.tokobungaindo.com/hubungi-kami/
+Growink Cafe,Majesty Beauty Manicure&Pedicure Russia,"Gedung Golf Gallery, Jl. Metro Pondok Indah Kav. 1, Pondok Pinang, South Jakarta City",https://gofood.link/a/Kcum6D3
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputicafe
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-02 17:33:02 [INFO] Executing Step 3: CodeGenerator
+2024-05-02 17:33:09 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-02 17:33:09 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:1734x4
+name,sub_name,address,website
+Cosmo Education,Toko Sebelas,"Raya Blok B5, Jl. Dermaga Blok G No.4, RT.3/RW.11, Klender, Kota Jakarta Timur",http://baksowonogirionline.blogspot.com/
+Tempat mencari rejeki,Toko alat tulis,"Jl. Panglima Polim No.49A 1, RT.1/RW.6, Melawai, Kota Jakarta Selatan",https://www.tokobungaindo.com/hubungi-kami/
+Growink Cafe,Majesty Beauty Manicure&Pedicure Russia,"Gedung Golf Gallery, Jl. Metro Pondok Indah Kav. 1, Pondok Pinang, South Jakarta City",https://gofood.link/a/Kcum6D3
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ cari data dengan name yang meliputicafe
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-02 17:33:09 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+dfs = [pd.DataFrame({
+    'name': ['Cosmo Education', 'Tempat mencari rejeki', 'Growink Cafe'],
+    'sub_name': ['Toko Sebelas', 'Toko alat tulis', 'Majesty Beauty Manicure&Pedicure Russia'],
+    'address': ['Raya Blok B5, Jl. Dermaga Blok G No.4, RT.3/RW.11, Klender, Kota Jakarta Timur',
+                'Jl. Panglima Polim No.49A 1, RT.1/RW.6, Melawai, Kota Jakarta Selatan',
+                'Gedung Golf Gallery, Jl. Metro Pondok Indah Kav. 1, Pondok Pinang, South Jakarta City'],
+    'website': ['http://baksowonogirionline.blogspot.com/',
+                'https://www.tokobungaindo.com/hubungi-kami/',
+                'https://gofood.link/a/Kcum6D3']
+})]
+
+# Filter data with name containing 'cafe'
+result_df = dfs[0][dfs[0]['name'].str.contains('cafe', case=False)]
+
+# Declare result var
+result = {"type": "dataframe", "value": result_df}
+            ```
+            
+2024-05-02 17:33:09 [INFO] Executing Step 4: CachePopulation
+2024-05-02 17:33:09 [INFO] Executing Step 5: CodeCleaning
+2024-05-02 17:33:09 [INFO] 
+Code running:
+```
+result_df = dfs[0][dfs[0]['name'].str.contains('cafe', case=False)]
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-05-02 17:33:09 [INFO] Executing Step 6: CodeExecution
+2024-05-02 17:33:09 [INFO] Executing Step 7: ResultValidation
+2024-05-02 17:33:09 [INFO] Answer: {'type': 'dataframe', 'value':                               name  ...                                            website
+1                    Djakarta Cafe  ...                                                   
+2                       Amuya Cafe  ...                       https://www.amuyacoffee.com/
+3           Kawisari Cafe & Eatery  ...                         http://kawisaricoffee.com/
+4          Covare Cafe & Workspace  ...                                                   
+6                      Garasi Cafe  ...                                                   
+7                     Sameday Cafe  ...                                                   
+8                    O'delice cafe  ...                                                   
+9                       Metro Cafe  ...                   https://linktr.ee/metrocoffeebar
+10                    Growink Cafe  ...                                                   
+11                       Cafe Arip  ...                                                   
+12                        127 Cafe  ...                      https://www.kosendahotel.com/
+13                      Kay's Cafe  ...                                                   
+15           Upstairs Rooftop Cafe  ...                                                   
+16                 Atap Rumah Cafe  ...                                                   
+17                     Lumine Cafe  ...  https://instagram.com/lumine.jakarta?igshid=Ym...
+18                        The Cafe  ...                                                   
+19                 One Eighty Cafe  ...  https://instagram.com/oneeightybakery.id?igshi...
+20                     Tara's Cafe  ...              https://www.facebook.com/tarascafebtn
+21                    Laoteng Cafe  ...             https://www.instagram.com/laotengcafe/
+23                   Angelica Cafe  ...                         http://www.angelicafe.com/
+24                    Liberty Cafe  ...                                                   
+26                    Bro Gan Cafe  ...  https://instagram.com/bro.gan_cafe?igshid=YmMy...
+27                       1947 Cafe  ...  https://instagram.com/1947.cafe?utm_medium=cop...
+28           Equal Park Cafe & Art  ...            https://hermanzambeck.blogspot.com/?m=1
+29            LOOWE CAFE N KITCHEN  ...                                                   
+30                The Factory Cafe  ...                           http://www.factoryc.com/
+31                    Tiku Cafe 98  ...  http://www.facebook.com/Tiku-Cafe-98-Benhil-Ja...
+32                     Tung's Cafe  ...                                                   
+33     Bekoja Cafe sisha and Cofee  ...                                                   
+34                     Tamani Cafe  ...                        http://menu.kafetamani.com/
+35                     Cafe Mamake  ...                                                   
+36                       Loko Cafe  ...                                                   
+37                   Immanuel Cafe  ...                                                   
+38    Franchise cafe dan coffeshop  ...                                                   
+39                       Cafe Meta  ...                                                   
+40                      Rport Cafe  ...                  http://www.angkasapuraretail.com/
+41               New Memories Cafe  ...                                                   
+42                        Fab Cafe  ...                               https://fabcafe.com/
+44                      Cafe juned  ...                                                   
+45                       Amry Cafe  ...                                                   
+46                    Savoria Cafe  ...                                                   
+47                     Cafe Aurora  ...                                                   
+48                Bon Appetit Cafe  ...                   http://www.royalcityjakarta.com/
+49                      Obama cafe  ...                                                   
+50            Cattlea Cafe & Resto  ...                                                   
+51                     Cafe deLima  ...                                                   
+52                       Drei cafe  ...                                                   
+1385                     Loco Cafe  ...                                                   
+1709                     Fami Cafe  ...  https://www.grand-indonesia.com/shopping-direc...
+1710                     Mame Cafe  ...                   https://instagram.com/mamecafe13
+1711           Rizka Cafe & Coffee  ...                                                   
+1712         Mangrofe Resto & Cafe  ...                                                   
+
+[52 rows x 4 columns]}
+2024-05-02 17:33:09 [INFO] Executing Step 8: ResultParsing
