@@ -26,6 +26,12 @@ from pandasai import SmartDataframe, Agent
 from pandasai.llm.openai import OpenAI
 import pandas as pd
 import numpy as np
+import psycopg2
+
+import re
+import time
+import random
+import string  # For generating random strings
 
 # Load .env file
 load_dotenv()
@@ -128,6 +134,7 @@ def get_data_google(query):
 
 # Function to retrieve data merchant
 def get_data_merchant(merchant_name):
+    start_time = time.time()
     db = SessionLocal()
     try:
         # Execute the query
@@ -135,9 +142,9 @@ def get_data_merchant(merchant_name):
             or_(
                 and_(
                     or_(
-                        func.similarity(ModelMerchant.name, merchant_name) > 0.45,
-                        func.similarity(ModelMerchant.sub_name, merchant_name) > 0.45,
-                        func.similarity(ModelMerchant.website, merchant_name) > 0.3
+                        func.similarity(ModelMerchant.name, merchant_name) > 0.4,
+                        func.similarity(ModelMerchant.sub_name, merchant_name) > 0.4,
+                        func.similarity(ModelMerchant.website, merchant_name) > 0.25
                     ),
                     func.similarity(ModelMerchant.address, merchant_name) > 0.05
                 ),
@@ -147,9 +154,16 @@ def get_data_merchant(merchant_name):
         ).first()
         if merchant != None:
             # Return the result
+            end_time = time.time()
+            execution_time = end_time-start_time
+            print(f"Execution time for using similarity: {execution_time:.2f} seconds")
             return merchant
         else:
-            return get_data_google(merchant_name)
+            google_data = get_data_google(merchant_name)
+            end_time = time.time()
+            execution_time = end_time-start_time
+            print(f"Execution time for using similarity: {execution_time:.2f} seconds")
+            return google_data
     finally:
         # Close the session
         db.close()
@@ -161,12 +175,15 @@ def lowercase_str(x):
     else:
         return x
 
-def test_search(merchant_name):
+# Function to test Pandas AI
+def test_pandas_ai_search(merchant_name):
+    start_time = time.time()
     db = SessionLocal()
 
     try:
         # Specify the columns you want to retrieve
         columns_to_query = [
+            ModelMerchant.merchant_code,
             ModelMerchant.name,
             ModelMerchant.sub_name,
             ModelMerchant.address,
@@ -182,15 +199,64 @@ def test_search(merchant_name):
         # print(lowered_df.head())
 
         llm = OpenAI(api_token=os.getenv("OPENAI_API_KEY"))
-        sindia = SmartDataframe(df, config={'llm':llm, 'verbose': True})
+        bot = SmartDataframe(df, config={"custom_whitelisted_dependencies": ["collections","fuzzywuzzy"],'llm':llm, 'verbose': True})
 
-        response = sindia.chat('cari data dengan name yang meliputi' + merchant_name)
+        response = bot.chat('cari data dengan name, sub_name, website, atau address yang meliputi' + merchant_name)
+        #response = bot.chat('return merchant_code based on the input name ' + merchant_name)
         print(response)
-
+        end_time = time.time()
+        execution_time = end_time-start_time
+        print(f"Execution time using Pandas AI: {execution_time:.2f} seconds")
         return response
     finally:
         # Close the session
         db.close()
+
+def test_full_text_search_postgre(merchant_name):
+    try:
+        start_time = time.time()
+        # Connect to the PostgreSQL database
+        conn = psycopg2.connect(dbname=os.getenv("DATABASE"), user=os.getenv("DB_USER"), password=os.getenv("DB_PASSWORD"), host=os.getenv("DB_HOST"), port=os.getenv("DB_PORT"))
+
+        # Create a cursor object
+        cur = conn.cursor()
+
+        # Improved search query using parentheses for clarity
+        search_query = """SELECT * 
+                        FROM merchants m 
+                        WHERE (m.name @@ to_tsquery(%s) 
+                                or m.sub_name @@ to_tsquery(%s)
+                                or m.website @@ to_tsquery(%s)
+                                and m.address @@ to_tsquery(%s))
+                                or m.name @@ to_tsquery(%s)
+                                or m.sub_name @@ to_tsquery(%s)
+                        LIMIT 1"""
+        # Regular expression to split on whitespace and create OR clauses
+        pattern = r"\s+"
+        search_terms = re.sub(pattern, "&", merchant_name)  # Replace whitespace with " | "
+        print(search_terms)
+        # Execute the query with parameter substitution for security
+        cur.execute(search_query, (search_terms, search_terms, search_terms, search_terms, search_terms, search_terms))  # Repeat search_terms six times
+
+        # Fetch all matching rows
+        rows = cur.fetchall()
+
+        # Process the results (e.g., print or store in a variable)
+        if rows:
+            print("Found merchants:")
+            for row in rows:
+                print(row)  # Print each merchant's details
+        else:
+            print("No merchants found matching the search criteria.")
+        end_time = time.time()
+        execution_time = end_time-start_time
+        print(f"Execution time using full text search postgresql: {execution_time:.2f} seconds")
+        return rows
+    except Exception as e:
+        print("Error:", e)
+    finally:
+        # Close the cursor
+        cur.close()
 
 # Function to retrieve data category
 def get_category(detail):
@@ -265,9 +331,74 @@ async def data_merchant(m: DataMerchant):
 async def categorize_transaction(t: Transaction):
     return get_category(t)
 
+# Testing Pandas AI to embedded in searching
 @app.post("/api/test-pandas-ai")
 async def test_pandas_ai(m: DataMerchant):
-    return test_search(m.name)
+    return test_pandas_ai_search(m.name)
+
+# Testing posgresql full text search capability
+@app.post("/api/test-full-text-search-postgre")
+async def test_full_text_search(m: DataMerchant):
+    return test_full_text_search_postgre(m.name)
+
+@app.post("/api/inject-data")
+async def inject_data():
+
+    # Number of random merchants to generate
+    num_merchants = 800000
+
+    # Category options (replace with your actual category IDs)
+    category_options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # Example category IDs
+
+    # Function to generate random string of specified length
+    def generate_random_string(length):
+        letters_and_digits = string.ascii_letters + string.digits
+        return ''.join(random.choice(letters_and_digits) for _ in range(length))
+
+    try:
+        # Connect to the PostgreSQL database
+        conn = psycopg2.connect(dbname=os.getenv("DATABASE"), user=os.getenv("DB_USER"), password=os.getenv("DB_PASSWORD"), host=os.getenv("DB_HOST"), port=os.getenv("DB_PORT"))
+
+        # Create a cursor object
+        cur = conn.cursor()
+
+        # Generate random data for each merchant
+        for _ in range(num_merchants):
+            name = generate_random_string(10)  # Adjust length as needed
+            sub_name = generate_random_string(15)  # Adjust length as needed
+            merchant_code = generate_random_string(10)
+            category_id = random.choice(category_options)  # Choose random category
+            logo = "https://via.placeholder.com/150"  # Example placeholder logo
+            website = f"https://www.{generate_random_string(10)}.com"  # Example website
+            latitude = random.uniform(-90, 90)  # Random latitude within range
+            longitude = random.uniform(-180, 180)  # Random longitude within range
+            address = generate_random_string(30) + " Street"  # Example address
+            
+            # Insert query with parameter substitution for security
+            insert_query = """
+            INSERT INTO merchants_garage (name, sub_name, merchant_code, category_id, logo, website, latitude, longitude, address)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+
+            # Execute the query with parameters
+            cur.execute(insert_query, (name, sub_name, merchant_code, category_id, logo, website, latitude, longitude, address))
+
+        # Commit the changes
+        conn.commit()
+
+        print(f"Successfully generated {num_merchants} random merchants.")
+        return "Successfully generated {num_merchants} random merchants."
+
+    except Exception as e:
+        print("Error:", e)
+        # Rollback any changes in case of errors
+        conn.rollback()
+
+    finally:
+        # Close the cursor and connection
+        cur.close()
+        conn.close()
+        
 
 if __name__ == "__main__":
     server = run(app, host="0.0.0.0", port=8000)
